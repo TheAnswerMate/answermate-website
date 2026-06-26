@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How it works — The Answer Mate</title>
+<meta name="description" content="See exactly how The Answer Mate turns your missed calls into ready-to-call leads, step by step."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #14302E; --ink-soft: #3D5654; --paper: #FBF7F0; --paper-2: #F4EDE1;
+    --card: #FFFFFF; --coral: #FF6B4A; --coral-deep: #E8512F; --teal: #1F6F66;
+    --teal-light: #E3F0ED; --muted: #7A8C89; --line: rgba(20,48,46,0.10);
+    --shadow: 0 1px 2px rgba(20,48,46,0.04), 0 8px 24px rgba(20,48,46,0.06);
+    --shadow-lg: 0 2px 4px rgba(20,48,46,0.05), 0 20px 48px rgba(20,48,46,0.10);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(251,247,240,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1080px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px; color: var(--ink); text-decoration: none; }
+  .logo-mark { width: 34px; height: 34px; flex-shrink: 0; }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 15px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: background 0.15s, color 0.15s; }
+  .nav-links a:hover { background: var(--paper-2); color: var(--ink); }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta { background: var(--ink) !important; color: var(--paper) !important; }
+  .nav-cta:hover { background: var(--teal) !important; color: #fff !important; }
+
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--coral); color: #fff; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; text-decoration: none; padding: 15px 28px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 4px 14px rgba(255,107,74,0.35); transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+  .btn-primary:hover { background: var(--coral-deep); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,107,74,0.4); }
+
+  .page-hero { padding: 72px 0 32px; text-align: center; }
+  .page-hero .label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; }
+  .page-hero h1 { font-size: 52px; margin-bottom: 20px; }
+  .page-hero p { font-size: 19px; color: var(--ink-soft); max-width: 44ch; margin: 0 auto; }
+
+  /* Walkthrough steps */
+  .walk { padding: 48px 0 64px; }
+  .walk-step { display: grid; grid-template-columns: 80px 1fr; gap: 28px; padding: 36px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .walk-step:last-child { border-bottom: none; }
+  .walk-badge { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: #fff; background: var(--coral); width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(255,107,74,0.3); }
+  .walk-step:nth-child(2) .walk-badge { background: var(--teal); box-shadow: 0 6px 16px rgba(31,111,102,0.3); }
+  .walk-step:nth-child(3) .walk-badge { background: var(--ink); box-shadow: 0 6px 16px rgba(20,48,46,0.25); }
+  .walk-step:nth-child(4) .walk-badge { background: var(--coral); box-shadow: 0 6px 16px rgba(255,107,74,0.3); }
+  .walk-body h3 { font-size: 25px; margin-bottom: 12px; }
+  .walk-body p { font-size: 16.5px; color: var(--ink-soft); margin-bottom: 14px; }
+  .walk-detail { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; font-size: 15px; color: var(--ink-soft); }
+  .walk-detail .tip { display: inline-block; flex-shrink: 0; font-size: 12px; font-weight: 600; color: var(--teal); background: var(--teal-light); padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+  .walk-detail p { margin: 0; }
+
+  /* Setup section */
+  .setup { background: var(--ink); color: var(--paper); padding: 72px 0; }
+  .setup h2 { font-size: 36px; color: var(--paper); margin-bottom: 14px; text-align: center; }
+  .setup .sub { color: rgba(251,247,240,0.7); font-size: 17px; text-align: center; max-width: 46ch; margin: 0 auto 48px; }
+  .setup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .setup-card { background: rgba(251,247,240,0.06); border: 1px solid rgba(251,247,240,0.12); border-radius: 16px; padding: 28px; }
+  .setup-card .n { font-family: 'Fraunces', serif; color: var(--coral); font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .setup-card h3 { color: var(--paper); font-size: 18px; margin-bottom: 8px; }
+  .setup-card p { color: rgba(251,247,240,0.65); font-size: 14.5px; }
+
+  .final { text-align: center; padding: 88px 0; }
+  .final h2 { font-size: 42px; margin-bottom: 16px; }
+  .final p { font-size: 18px; color: var(--ink-soft); margin-bottom: 32px; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0; background: var(--paper-2); }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: var(--coral); }
+  .footer-copy { font-size: 13px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .setup-grid { grid-template-columns: 1fr; }
+    .page-hero h1 { font-size: 40px; }
+  }
+  @media (max-width: 520px) {
+    .wrap, .wrap-narrow { padding: 0 18px; }
+    .page-hero { padding: 48px 0 24px; }
+    .page-hero h1 { font-size: 33px; }
+    .page-hero p { font-size: 17px; }
+    .walk-step { grid-template-columns: 1fr; gap: 16px; }
+    .walk-badge { width: 52px; height: 52px; font-size: 18px; border-radius: 14px; }
+    .final h2 { font-size: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#FF6B4A"/><path d="M11 14.5C11 13.1 12.1 12 13.5 12H26.5C27.9 12 29 13.1 29 14.5V22C29 23.4 27.9 24.5 26.5 24.5H18L13.5 28V24.5H13.5C12.1 24.5 11 23.4 11 22V14.5Z" fill="white"/><circle cx="16.5" cy="18.3" r="1.5" fill="#FF6B4A"/><circle cx="20" cy="18.3" r="1.5" fill="#FF6B4A"/><circle cx="23.5" cy="18.3" r="1.5" fill="#FF6B4A"/></svg>
+      The Answer Mate
+    </a>
+    <div class="nav-links">
+      <a href="/how-it-works.html" class="active">How it works</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="https://buy.stripe.com/00weVe6FX2Ehc4K8L3f7i01" class="nav-cta">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap-narrow">
+    <div class="label">How it works</div>
+    <h1>From missed call to won customer</h1>
+    <p>No apps for your customers. No tech headaches for you. Here's exactly what happens, start to finish.</p>
+  </div>
+</header>
+
+<section class="walk">
+  <div class="wrap-narrow">
+
+    <div class="walk-step">
+      <div class="walk-badge">1</div>
+      <div class="walk-body">
+        <h3>Someone calls and you can't pick up</h3>
+        <p>You're with a customer, on a job, driving, or it's simply after hours. The call would normally go to voicemail — and most people just hang up and try the next business.</p>
+        <div class="walk-detail"><span class="tip">Good to know</span><p>The Answer Mate only steps in when you <em>don't</em> answer. Calls you do pick up are completely unaffected.</p></div>
+      </div>
+    </div>
+
+    <div class="walk-step">
+      <div class="walk-badge">2</div>
+      <div class="walk-body">
+        <h3>We text the caller back in seconds</h3>
+        <p>The moment a call goes unanswered, The Answer Mate sends the caller a friendly text on your behalf — introducing your business and asking how it can help. It feels personal, never automated.</p>
+        <div class="walk-detail"><span class="tip">Behind the scenes</span><p>The message goes out in seconds, while the caller is still thinking about you — long before they'd call a competitor.</p></div>
+      </div>
+    </div>
+
+    <div class="walk-step">
+      <div class="walk-badge">3</div>
+      <div class="walk-body">
+        <h3>We find out exactly what they need</h3>
+        <p>The Answer Mate has a natural back-and-forth conversation with the caller — getting their name, what they're after, where they are, and when suits them. It keeps things short and friendly, just like you would.</p>
+        <div class="walk-detail"><span class="tip">Smart by design</span><p>Time-wasters and wrong numbers get politely filtered out, so only real enquiries reach you.</p></div>
+      </div>
+    </div>
+
+    <div class="walk-step">
+      <div class="walk-badge">4</div>
+      <div class="walk-body">
+        <h3>You get a ready-to-call lead</h3>
+        <p>A tidy summary lands on your phone — who called, what they want, where they are, and when they're free. When you get a spare minute, you call them back already knowing the job. No phone tag, no guesswork.</p>
+        <div class="walk-detail"><span class="tip">The payoff</span><p>You win work you'd otherwise never have known about — without stopping what you were doing.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="setup">
+  <div class="wrap">
+    <h2>Getting set up takes 2 minutes</h2>
+    <p class="sub">No engineer visit, no new handset, no learning curve. Just a quick one-time setup and you're live.</p>
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="n">Step one</div>
+        <h3>Sign up free</h3>
+        <p>Start your 14-day trial — no card needed. We'll send you a simple welcome email straight away.</p>
+      </div>
+      <div class="setup-card">
+        <div class="n">Step two</div>
+        <h3>Set your divert</h3>
+        <p>Follow three short codes we send you to forward missed calls. Takes about a minute, right from your phone.</p>
+      </div>
+      <div class="setup-card">
+        <div class="n">Step three</div>
+        <h3>You're live</h3>
+        <p>We run a quick test to make sure it's all working — then your missed calls start turning into leads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap-narrow">
+    <h2>Ready to stop missing customers?</h2>
+    <p>Try it free for 14 days. No card, no commitment.</p>
+    <a href="https://buy.stripe.com/00weVe6FX2Ehc4K8L3f7i01" class="btn-primary">Start your free trial →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="/" class="logo" style="font-size:17px;">
+      <svg class="logo-mark" style="width:28px;height:28px;" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="11" fill="#FF6B4A"/><path d="M11 14.5C11 13.1 12.1 12 13.5 12H26.5C27.9 12 29 13.1 29 14.5V22C29 23.4 27.9 24.5 26.5 24.5H18L13.5 28V24.5H13.5C12.1 24.5 11 23.4 11 22V14.5Z" fill="white"/><circle cx="16.5" cy="18.3" r="1.5" fill="#FF6B4A"/><circle cx="20" cy="18.3" r="1.5" fill="#FF6B4A"/><circle cx="23.5" cy="18.3" r="1.5" fill="#FF6B4A"/></svg>
+      The Answer Mate
+    </a>
+    <div class="footer-links">
+      <a href="/how-it-works.html">How it works</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:hello@theanswermate.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 The Answer Mate Ltd</div>
+  </div>
+</footer>
+
+</body>
+</html>
